@@ -2,3 +2,5 @@ venv/
 *.sql
 config.py
 **__pycache__/
+app_backup.py
+models_backup.py
