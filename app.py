@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template
 from models import URL, Session, create_tables
-import base62
 import random
 import string
 
@@ -9,9 +8,11 @@ def generate_short_code(length=6):
     chars = string.ascii_letters + string.digits
     return "".join(random.choices(chars, k=length))
 
+#
 app = Flask(__name__)
 create_tables()
 
+#
 @app.route('/', methods=['GET', 'POST'])
 def index():
     short_url = None
@@ -44,6 +45,7 @@ def index():
 
     return render_template('index.html', short_url=short_url, error=error)
 
+#
 @app.route('/<short_code>')
 def redirect_to_url(short_code):
     session = Session()
@@ -54,5 +56,6 @@ def redirect_to_url(short_code):
         return redirect(url.original_url)
     return "URL não encontrada", 404
 
+#
 if __name__ == '__main__':
     app.run(debug=True)
