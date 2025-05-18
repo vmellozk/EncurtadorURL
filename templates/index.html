@@ -1,25 +1,145 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
-    <title>Encurtador de URL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitly Clone</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-
 <body>
-    <h1>Encurtador de URL</h1>
-    <form method="POST">
-        <input type="text" name="url" placeholder="Cole sua URL aqui" required>
-        <input type="text" name="custom_code" placeholder="Código personalizado (opcional)">
-        <button type="submit">Encurtar</button>
-    </form>
+  <div class="app-container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <div class="navbar-left">
+          <img
+            src="{{ url_for('static', filename='images/icone.png') }}"
+            alt="Encurtador Logo"
+            class="logo"
+          />
+          <!-- Links comentados mantidos -->
+          <!-- <a href="#home" class="nav-link">Início</a>
+          <a href="#platform" class="nav-link">Como Funciona</a>
+          <a href="#solutions" class="nav-link">Recursos</a> -->
+        </div>
+        <div class="navbar-right">
+          <!-- <a href="#" class="nav-button signup">Contato</a> -->
+        </div>
+      </div>
+    </nav>
 
-    {% if short_url %}
-        <p>URL curta: <a href="{{ short_url }}">{{ short_url }}</a></p>
-    {% endif %}
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <!-- Top Text -->
+        <div class="hero-text">
+          <h1>Encurte URLs com rapidez e simplicidade</h1>
+          <p>
+            Transforme links longos em URLs curtas e fáceis de compartilhar.  
+            Acompanhe o desempenho dos seus links e facilite o acesso ao seu conteúdo.  
+            Tudo isso com uma plataforma prática, segura e gratuita.
+          </p>
+        </div>
 
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
+        <!-- Centered Box -->
+        <div class="shorten-box">
+          <div class="shorten-header">
+            <div class="shorten-title">Encurte seu link rapidamente</div>
+            <div class="shorten-subtitle">Sem necessidade de cartão de crédito.</div>
+          </div>
+          <!-- Formulário que envia para o backend -->
+          <form id="shorten-form" class="shorten-form" method="POST" action="">
+            <input
+              type="url"
+              id="longUrl"
+              name="url"
+              placeholder="Cole o seu link aqui"
+              required
+              class="shorten-input"
+              value="{{ request.form.url if request.method == 'POST' else '' }}"
+            />
+            <button type="submit" class="shorten-button">Gerar link grátis</button>
+          </form>
+
+          <!-- Exibir URL curta gerada -->
+          {% if short_url %}
+          <div id="shortUrlContainer" class="short-url-container" style="display:block; margin-top: 1em;">
+            <span class="short-url-label">Seu link encurtado:</span>
+            <div id="shortUrl" class="short-url">
+              <a href="{{ short_url }}" target="_blank" rel="noopener">{{ short_url }}</a>
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- Exibir erro, se houver -->
+          {% if error %}
+          <p style="color:red; margin-top: 1em;">{{ error }}</p>
+          {% endif %}
+
+          <ul class="free-plan-list">
+            <li>Até 5 links encurtados por semana</li>
+            <li>20 URLs personalizadas por mês</li>
+            <li>Clique ilimitado nos seus links</li>
+          </ul>
+        </div>
+
+        <!-- Customer Logos -->
+        <div class="customer-logos">
+          <img
+            src="https://ext.same-assets.com/1817268464/1506562100.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+          <img
+            src="https://ext.same-assets.com/1817268464/1534717000.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+          <img
+            src="https://ext.same-assets.com/1817268464/828516650.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+          <img
+            src="https://ext.same-assets.com/1817268464/2788474264.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+          <img
+            src="https://ext.same-assets.com/1817268464/2222920073.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+          <img
+            src="https://ext.same-assets.com/1817268464/3382336650.svg"
+            alt="customer logo"
+            class="customer-logo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <img
+          src="{{ url_for('static', filename='images/logo_sem_fundo.png') }}"
+          alt="Logo do Encurtador"
+          class="footer-logo"
+        />
+        <div class="footer-links">
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Política de Privacidade</a>
+          <a href="#" class="footer-link">Termos de Uso</a>
+        </div>
+        <div class="footer-copy">
+          Todos os Direitos Reservados por vmellozk ©
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Remova o script JS que gera link fake no front-end -->
 
 </body>
 </html>
