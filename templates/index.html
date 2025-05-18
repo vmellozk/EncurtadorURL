@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Encurtador de URL</title>
+</head>
+
+<body>
+    <h1>Encurtador de URL</h1>
+    <form method="POST">
+        <input type="text" name="url" placeholder="Cole sua URL aqui" required>
+        <input type="text" name="custom_code" placeholder="Código personalizado (opcional)">
+        <button type="submit">Encurtar</button>
+    </form>
+
+    {% if short_url %}
+        <p>URL curta: <a href="{{ short_url }}">{{ short_url }}</a></p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>
