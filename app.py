@@ -20,21 +20,12 @@ def index():
 
     if request.method == 'POST':
         original_url = request.form['url']
-        custom_code = request.form['custom_code']
         session = Session()
 
-        if custom_code:
-            existing = session.query(URL).filter_by(short_code=custom_code).first()
-            if existing:
-                error = "Este código já está em uso. Por favor, escolha outro."
-                session.close()
-                return render_template('index.html', short_url=None, error=error)
-            short_code = custom_code
-        else:
-            while True:
-                short_code = generate_short_code()
-                if not session.query(URL).filter_by(short_code=short_code).first():
-                    break
+        while True:
+            short_code = generate_short_code()
+            if not session.query(URL).filter_by(short_code=short_code).first():
+                break
 
         new_url = URL(original_url=original_url, short_code=short_code)
         session.add(new_url)
