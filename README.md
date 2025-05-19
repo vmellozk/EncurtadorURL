@@ -1,20 +1,24 @@
-# Encurtador de URL
+# 🔗 Encurtador de URL
 
 Este é um projeto simples de **Encurtador de URL** desenvolvido utilizando **Flask**, **PyMySQL** e **SQLAlchemy**. O objetivo do projeto é criar uma aplicação web onde o usuário pode encurtar URLs longas e acessá-las de forma mais prática e curta.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
 - **Encurtar URL**: O usuário insere uma URL longa e recebe uma versão encurtada.
 - **Redirecionamento**: O usuário pode acessar a URL encurtada e será redirecionado para a URL original.
 - **Histórico de URLs**: O usuário pode visualizar um histórico de URLs encurtadas.
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - **Flask**: Framework web para desenvolvimento da aplicação.
 - **PyMySQL**: Conector MySQL para Python.
 - **SQLAlchemy**: ORM para manipulação de banco de dados.
 
-## Requisitos
+## 🎬 Demonstração do Projeto (Vídeo)
+
+[![Assista à apresentação no YouTube](https://img.youtube.com/vi/M-yneh7qwiU/maxresdefault.jpg)](https://www.youtube.com/watch?v=M-yneh7qwiU)
+
+## ✅ Requisitos
 
 Antes de começar, certifique-se de ter o seguinte instalado:
 
@@ -22,7 +26,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 - MySQL ou MariaDB
 - pip (gerenciador de pacotes Python)
 
-## Instalação
+## 🚀 Instalação
 
 1. Clone este repositório:
 
@@ -73,7 +77,7 @@ python
 python app.py
 ```
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```php
 encurtador-url/
@@ -88,7 +92,7 @@ encurtador-url/
     └── style.css           # Estilo para a aplicação
 ```
 
-## Contribuição
+## 🤝 Contribuição
 
 Se você deseja contribuir com este projeto, siga as etapas abaixo:
 
@@ -98,6 +102,6 @@ Se você deseja contribuir com este projeto, siga as etapas abaixo:
 - Envie para o seu repositório: git push origin minha-feature.
 - Abra um pull request.
 
-## Licença
+## 📄 Licença
 
 Este projeto está licenciado sob a MIT License. O arquivo 'LICENSE' será disponibilizado para mais informações.
